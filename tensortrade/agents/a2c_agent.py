@@ -227,6 +227,9 @@ class A2CAgent(Agent):
 
             is_checkpoint = save_every and episode % save_every == 0
 
+            if is_checkpoint and callback is not None:
+                callback()
+
             if save_path and (is_checkpoint or episode == n_episodes):
                 self.save(save_path, episode=episode)
 
