@@ -229,6 +229,9 @@ class A2CAgent(Agent):
             if episode == n_episodes:
                 stop_training = True
 
+            if is_checkpoint:
+                print(episode, "/", steps_done)
+
             if is_checkpoint and callback is not None:
                 callback()
 
